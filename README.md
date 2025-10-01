@@ -1,4 +1,4 @@
-# Stackhlmsec Blog
+# StackhlmSec Blog
 
 A personal blog documenting my journey into full-stack web development and cybersecurity.  
 This is my first deployed site, where I share what I learn, what I build, and how I grow over time.

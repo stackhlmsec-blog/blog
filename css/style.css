@@ -99,6 +99,7 @@ body::before {
 
 main {
   flex: 1;
+  padding-bottom: 6rem;
 }
 
 nav {
