@@ -87,6 +87,18 @@ p {
   .post-list {
     padding: 0 1rem;
   }
+
+  .content-box {
+    padding: 1rem;
+  }
+
+  .blog-post {
+    padding: 0;
+  }
+
+  .post-paragraph {
+    font-size: 1rem;
+  }
 }
 
 body::before {
@@ -379,10 +391,16 @@ footer {
 }
 
 .blog-post {
-  max-width: 800px;
+  max-width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
   padding: 2rem;
   line-height: 1.6;
+}
+
+.blog-post p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .post-title {
