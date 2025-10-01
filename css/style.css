@@ -15,7 +15,7 @@
 body {
   font-size: 1rem;
   font-family: 'Segoe UI', sans-serif;
-  background-image: url('../img/hero/workstation.png');
+  background-image: url('../img/workstation.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -80,7 +80,7 @@ p {
     font-size: 1rem;
   }
 
-  .posts-fixes-grid {
+  .posts-grid {
     grid-template-columns: 1fr;
   }
 
@@ -209,14 +209,14 @@ nav a:focus {
   margin: 0 auto;
 }
 
-.posts-fixes-grid {
+.posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
 
-.posts-fixes-grid:has(.card:only-child) {
+.posts-grid:has(.card:only-child) {
   justify-content: center;
 }
 
@@ -375,4 +375,24 @@ footer {
   display: block;
   color: inherit;
   text-decoration: none;
+}
+
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+.post-title {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.post-paragraph {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-color);
 }
