@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organizing My Blog — Project Structure | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">Organizing My Blog — Project Structure</h1>
+            <p class="post-intro">Published: October 1, 2025</p>
+            <p class="post-paragraph">
+              A well-organized project helps me avoid confusion, find what I
+              need quickly, and plan for future additions. In this post, I‘ll
+              walk through how I set up the structure for my blog and why I
+              think it matters.
+            </p>
+            <p class="post-paragraph">
+              <strong> Here‘s how I organized the project so far: </strong>
+            </p>
+            <pre><code>
+blog/
+  css/
+    style.css
+  img/
+    workstation.png
+  js/
+    inject.js
+  partials/
+    footer.html
+    header.html
+  posts/
+    blog-project-structure.html
+    building-a-blog-site.html
+    starting-out.html
+  about.html
+  all-posts.html
+  index.html
+            </code></pre>
+            <p class="post-paragraph">
+              <strong>css/</strong> – holds all the styles for the site. Right
+              now it‘s just one file (style.css), but keeping it in its own
+              folder means I can expand later without cluttering the root
+              directory.
+            </p>
+            <p class="post-paragraph">
+              <strong>img/</strong> – a folder for images. I only have one
+              background picture right now, but the folder is ready for more as
+              the site grows.
+            </p>
+            <p class="post-paragraph">
+              <strong>js/</strong> – contains the script that injects the header
+              and footer into each page. This way, I only have to maintain those
+              pieces in one place.
+            </p>
+            <p>
+              <strong>partials/</strong> – stores reusable snippets like the
+              header and footer. This keeps me from repeating the same code
+              across multiple files and makes updates much simpler.
+            </p>
+            <p class="post-paragraph">
+              <strong>posts/</strong> – each blog post is its own HTML file,
+              which keeps content separate from the rest of the site‘s
+              structure.
+            </p>
+            <p class="post-paragraph">
+              <strong>about.html, all-posts.html, index.html</strong> – the main
+              pages visitors see.
+            </p>
+            <p class="post-paragraph">
+              Even though some of these folders only contain a single file at
+              the moment, organizing them this way has already paid off. It
+              feels easier to navigate, and I don’t have to wonder where a new
+              file should go. I also learned that reusing partials isn’t just
+              about saving time, it makes the whole project more consistent.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
