@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latest Blog Posts Section | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">Blog Site: Latest Blog Posts Section</h1>
+            <p class="post-intro">Published: October 3, 2025</p>
+            <p class="post-paragraph">
+              After setting up my project structure and hero section, I wanted a
+              way to show the most recent posts on my homepage.
+            </p>
+            <p class="post-paragraph">
+              Each post appears as a small card: title, publish date, and a
+              short description. I wrapped the content in a link so the whole
+              card is clickable, not just the text:
+            </p>
+            <pre><code>
+&lt;div class="card"&gt;
+  &lt;a href="posts/blog-hero.html"&gt;
+    &lt;h3&gt;Blog Site: Hero Section&lt;/h3&gt;
+    &lt;p class="card-date"&gt;Published: October 2, 2025&lt;/p&gt;
+    &lt;p&gt;Breaking down my hero section into wrapper, overlay, content,
+    and button layers.&lt;/p&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+            </code></pre>
+            <p class="post-paragraph">
+              The cards are arranged in a grid that adapts across screen sizes:
+              single column on mobile, multiple columns on larger screens. I
+              used:
+            </p>
+            <pre><code>
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+            </code></pre>
+            <p class="post-paragraph">
+              I chose <code>280px</code> as a minimum to give each card enough
+              breathing room without cramping the content.
+            </p>
+            <p class="post-paragraph">
+              The design uses a dark background, rounded corners, and a hover
+              effect that lifts the cards slightly, hinting they're clickable:
+            </p>
+            <pre><code>
+.card {
+  background-color: var(--primary-bg);
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* ...other layout styles */
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  /* ...other layout styles */
+}
+            </code></pre>
+            <p class="post-paragraph">
+              I added a fallback so a single card centers:
+            </p>
+            <pre><code>
+.posts-grid:has(.card:only-child) {
+  justify-content: center;
+}
+            </code></pre>
+            <p class="post-paragraph">
+              Styling is built around a few <code>:root</code> variables for
+              color and spacing, which keeps styles modular and easier to adjust
+              as the site grows.
+            </p>
+            <p class="post-paragraph">
+              For now, I’m adding new cards manually whenever I write a post.
+              Later I might automate it, but simplicity works at this stage.
+            </p>
+            <p class="post-paragraph">
+              This section isn’t complex, but it reflects how I’m approaching
+              the site overall: build small, think ahead, and keep things clean.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
