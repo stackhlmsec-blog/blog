@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Blog Posts Page | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">Blog Site: All Blog Posts Page</h1>
+            <p class="post-intro">Published: October 3, 2025</p>
+            <p class="post-paragraph">
+              I wanted a dedicated page to list all my posts. There is a short
+              intro at the top, followed by a vertical list of posts. I kept the
+              structure consistent with the homepage cards, but dropped the grid
+              and used a single-column layout. Each <code>.post-item</code> has
+              a dark background, padding, and hover effect.
+            </p>
+            <pre><code>
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.post-item {
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+            </code></pre>
+            <p class="post-paragraph">
+              Posts use an <code>&lt;article&gt;</code> element with a link
+              wrapping the title, date, and description. This ensures the entire
+              block is clickable:
+            </p>
+            <pre><code>
+&lt;article class="post-item"&gt;
+  &lt;a href="posts/latest-posts.html"&gt;
+    &lt;h2&gt;Blog Site: Latest Blog Posts Section&lt;/h2&gt;
+    &lt;p class="post-meta"&gt;Published: October 3, 2025&lt;/p&gt;
+    &lt;p&gt;
+      Showing recent posts on the homepage with cards that adapt
+      across screen sizes.
+    &lt;/p&gt;
+  &lt;/a&gt;
+&lt;/article&gt;
+            </code></pre>
+            <p class="post-paragraph">
+              This page complements the homepage by providing a complete
+              overview of my posts.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
