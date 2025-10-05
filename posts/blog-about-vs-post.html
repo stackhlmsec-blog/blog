@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About and Individual Blog Post Pages | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">
+              Blog Site: About and Individual Blog Post Pages
+            </h1>
+            <p class="post-intro">Published: October 5, 2025</p>
+            <p class="post-paragraph">
+              I started by creating a base layout that could adapt to both blog
+              posts and static pages.
+            </p>
+            <pre><code>
+&lt;main class="content-page"&gt;
+  &lt;section&gt;
+    &lt;div class="content-box"&gt;
+      &lt;!-- Page or post content --&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+            </code></pre>
+            <p class="post-paragraph">
+              The <code>.content-page</code> class defines consistent padding
+              around the main content area, while <code>.content-box</code> adds
+              a dark background, rounded corners, and a soft shadow.
+            </p>
+            <p class="post-paragraph">
+              Every blog post is wrapped inside an &lt;article&gt; element with
+              the class <code>.blog-post</code>. Inside it, I use:
+            </p>
+            <pre><code>
+&lt;h1 class="post-title"&gt;...&lt;/h1&gt;
+&lt;p class="post-intro"&gt;Published: ...&lt;/p&gt;
+&lt;p class="post-paragraph"&gt;...&lt;/p&gt;
+            </code></pre>
+            <p class="post-paragraph">
+              These classes handle typography and spacing, and keep posts
+              uniform.
+            </p>
+            <p class="post-paragraph">
+              The About page follows the same <code>.content-page</code> and
+              <code>.content-box</code> structure, even though it doesn’t use
+              the <code>.blog-post</code> class. It uses plain &lt;h1&gt; and
+              &lt;p&gt; tags.
+            </p>
+            <p class="post-paragraph">
+              Paragraphs rely on default styles defined under
+              <code>.content-page p</code> in <code>style.css</code>.
+            </p>
+            <p class="post-paragraph">
+              This setup keeps the code clean, modular, and easy to maintain. It
+              also sets the foundation for future templating or automation.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
