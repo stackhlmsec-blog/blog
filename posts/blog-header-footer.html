@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reusable Header and Footer | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+    <noscript class="noscript-warning">
+      <p>
+        This site requires JavaScript to display navigation and footer content.
+      </p>
+    </noscript>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">Blog Site: Reusable Header and Footer</h1>
+            <p class="post-intro">Published: October 6, 2025</p>
+            <p class="post-paragraph">
+              To avoid repeating the same header and footer markup on every
+              page, I created a JavaScript file that dynamically loads the
+              header and footer from separate HTML files.
+            </p>
+            <p class="post-paragraph">Here’s the full script:</p>
+            <pre><code>
+document.addEventListener('DOMContentLoaded', () => {
+    const depth = location.pathname.split('/').length - 2;
+    const prefix = '../'.repeat(depth);
+
+    const inject = async (targetId, path) => {
+        try {
+            const res = await fetch(prefix + path);
+            if (res.ok) {
+                const html = await res.text();
+                document.getElementById(targetId).innerHTML = html;
+            } else {
+                console.warn(`Failed to load ${prefix + path}: ${res.status}`);
+                document.getElementById(targetId).innerHTML = '&lt;p&gt;Navigation failed to load.&lt;/p&gt;';
+            }
+        } catch (err) {
+            console.error(`Error loading ${prefix + path}`, err);
+            document.getElementById(targetId).innerHTML = '&lt;p&gt;Navigation failed to load.&lt;/p&gt;';
+        }
+    };
+
+    inject('site-header', 'partials/header.html');
+    inject('site-footer', 'partials/footer.html');
+});
+            </code></pre>
+            <p class="post-paragraph">
+              This script runs after the DOM is fully loaded. It fetches the
+              header and footer from the <code>partials/</code> folder, using a
+              depth-aware prefix to ensure correct paths whether the page is at
+              the root or nested. This makes the script work both locally and
+              when deployed to platforms like Vercel. It injects the fetched
+              content into the page using placeholder
+              <code>&lt;div&gt;</code> elements with IDs
+              <code>site-header</code> and <code>site-footer</code>.
+            </p>
+            <p class="post-paragraph">
+              The inject.js file lives in the <code>js/</code> folder, and the
+              <code>partials/</code>
+              folder sits at the root level. This setup keeps shared components
+              easy to locate and update.
+            </p>
+            <p class="post-paragraph">
+              I also added a <code>&lt;noscript&gt;</code> block to provide
+              fallback messaging for users who have JavaScript disabled. It
+              ensures they understand why navigation and footer content may be
+              missing.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>

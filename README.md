@@ -14,7 +14,7 @@ This is my first deployed site, where I share what I learn, what I build, and ho
 - HTML5  
 - CSS3 (with custom properties for colors)  
 - JavaScript (for header/footer injection)  
-- Netlify for hosting  
+- Vercel for hosting  
 
 ## Setup
 

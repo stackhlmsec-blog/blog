@@ -55,6 +55,19 @@ p {
   color: var(--secondary-color);
 }
 
+.noscript-warning {
+  background-color: var(--primary-bg);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  padding: 1.5rem;
+  margin: 2rem auto;
+  border-radius: 8px;
+  font-size: 1rem;
+  max-width: 700px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
