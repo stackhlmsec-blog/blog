@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrollable Code Snippets | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+    <noscript class="noscript-warning">
+      <p>
+        This site requires JavaScript to display navigation and footer content.
+      </p>
+    </noscript>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">Blog Site: Scrollable Code Snippets</h1>
+            <p class="post-intro">Published: October 6, 2025</p>
+            <p class="post-paragraph">
+              While working on the post about reusable headers and footers, I
+              noticed that the code snippet in that post was too wide for the
+              content box. Long lines were overflowing, which made it harder to
+              read and disrupted the layout.
+            </p>
+            <p class="post-paragraph">
+              To fix this, I added a new <code>&lt;pre&gt;</code> style in
+              <code>style.css</code> to enable horizontal scrolling. This
+              ensures that any code snippet wider than the content box can
+              scroll without breaking the layout. The scroll bar is styled to
+              match the site's theme for a consistent look across browsers.
+            </p>
+            <p class="post-paragraph">
+              Another issue I noticed was that the paragraph following the code
+              snippet looked too close. To improve readability, I added a
+              <code>margin-bottom</code> for the code blocks and a
+              <code>margin-top</code> when a code snippet follows a heading
+              (<code>h1, h2, h3</code>). This keeps spacing consistent and
+              separates the code visually.
+            </p>
+            <p class="post-paragraph">
+              Here’s a simplified snippet of the styling I added:
+            </p>
+            <pre><code>
+pre {
+  background-color: #162032;
+  color: #38bdf8;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  overflow-x: auto; /* Enables horizontal scrolling so you can see a scroll bar if the content is wider than the box */
+  margin-bottom: 2.5rem; /* Adds space after the code block */
+}
+
+h1 + pre,
+h2 + pre,
+h3 + pre {
+  margin-top: 1.5rem; /* Adds space when code follows a heading */
+}
+            </code></pre>
+            <p class="post-paragraph">
+              I also styled the code visually, using a dark background with
+              bright blue text for high contrast and readability, and rounded
+              corners to match the site’s card style. Ensuring good contrast was
+              a particular focus, so the code is easy to read against the page
+              background.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>

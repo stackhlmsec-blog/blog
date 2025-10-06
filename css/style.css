@@ -412,3 +412,48 @@ footer {
   line-height: 1.7;
   color: var(--text-color);
 }
+
+pre {
+  background-color: #162032;
+  color: #38bdf8;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #38bdf8 #162032;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  border: 1px solid #1e293b;
+  margin-bottom: 2.5rem;
+}
+
+pre::-webkit-scrollbar {
+  height: 12px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: #162032;
+  border-radius: 8px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: #38bdf8;
+  border-radius: 8px;
+  border: 3px solid #162032;
+}
+
+code {
+  background-color: #162032;
+  color: #38bdf8;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+h1 + pre,
+h2 + pre,
+h3 + pre {
+  margin-top: 1.5rem;
+}
