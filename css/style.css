@@ -400,6 +400,15 @@ footer {
   overflow-wrap: break-word;
 }
 
+.blog-post h2 {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
 .post-title {
   font-size: 2.2rem;
   margin-bottom: 1rem;

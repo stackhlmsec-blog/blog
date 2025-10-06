@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploying to Vercel | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+    <noscript class="noscript-warning">
+      <p>
+        This site requires JavaScript to display navigation and footer content.
+      </p>
+    </noscript>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">Blog Site: Deploying to Vercel</h1>
+            <p class="post-intro">Published: October 6, 2025</p>
+            <p class="post-paragraph">
+              I wanted to make the blog site accessible online so others could
+              visit it. I chose Vercel because it’s easy to use with static
+              sites, integrates well with Git, and handles deployments
+              automatically.
+            </p>
+            <h2>Step 1: Connecting the Repository</h2>
+            <p class="post-paragraph">
+              I pushed the project to GitHub, then connected the repository to
+              Vercel. Vercel automatically detected it as a static site and
+              suggested the default build settings.
+            </p>
+            <h2>Step 2: Adjusting Paths for Deployment</h2>
+            <p class="post-paragraph">
+              One important detail was that the inject.js script, which handles
+              the header and footer, relies on relative paths. To make sure
+              these worked on Vercel as well as locally, I implemented a
+              depth-aware prefix in inject.js. This way, the site works
+              correctly whether a page is in a subfolder or at the root.
+            </p>
+            <h2>Step 3: Deploying</h2>
+            <p class="post-paragraph">
+              Once the repository was connected and paths verified, I clicked
+              “Deploy”. Vercel built the site and provided a live URL, which I
+              customized after. Every push to the main branch triggers an
+              automatic redeploy, so the site stays up-to-date without manual
+              uploads.
+            </p>
+            <h2>Step 4: Testing the Live Site</h2>
+            <p class="post-paragraph">
+              I checked all pages, the header, footer, and blog posts to ensure
+              they rendered correctly. All links, code snippets, and the image
+              worked as expected, and the scrollable code snippets maintained
+              their styling.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
