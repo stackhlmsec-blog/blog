@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Setting Up the Project | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+    <noscript class="noscript-warning">
+      <p>
+        This site requires JavaScript to display navigation and footer content.
+      </p>
+    </noscript>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">LoginApp: Setting Up the Project</h1>
+            <p class="post-intro">Published: October 7, 2025</p>
+            <p class="post-paragraph">
+              The first step was to set up the environment where I could start
+              building.
+            </p>
+            <p class="post-paragraph">
+              I used <code>npx create-next-app@latest next-login-app</code> to
+              generate the project and chose <strong>TypeScript</strong> and
+              <strong>Tailwind CSS</strong>. TypeScript helps catch errors early
+              and makes the code more predictable, while Tailwind lets me style
+              directly in components without switching between multiple files.
+            </p>
+            <p class="post-paragraph">
+              For package management, I went with <strong>pnpm</strong>. I’d
+              heard from experienced developers that it’s faster than npm and
+              more efficient with storage since it links shared dependencies
+              instead of reinstalling them. As someone still early in full-stack
+              development, trying pnpm felt like a small but meaningful step
+              toward using professional-grade tools.
+            </p>
+            <p class="post-paragraph">
+              The very first version of LoginApp was simple, just a single page
+              with a gradient background, a white card, and a “Login” button.
+              Everything was hard-coded in one file. It wasn’t scalable, but it
+              gave me a starting point to test ideas and experiment with layout
+              and design.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
