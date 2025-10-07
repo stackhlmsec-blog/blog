@@ -461,8 +461,8 @@ code {
   font-family: 'Courier New', monospace;
 }
 
-h1 + pre,
-h2 + pre,
-h3 + pre {
+h1+pre,
+h2+pre,
+h3+pre {
   margin-top: 1.5rem;
 }
