@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Refining the Login Form with Floating Labels | StackhlmSec Blog
+    </title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+    <noscript class="noscript-warning">
+      <p>
+        This site requires JavaScript to display navigation and footer content.
+      </p>
+    </noscript>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">
+              LoginApp: Refining the Login Form with Floating Labels
+            </h1>
+            <p class="post-intro">Published: October 9, 2025</p>
+            <p class="post-paragraph">
+              In this post, I’ll walk through how I refined the username and
+              password fields in LoginApp with floating labels and improved
+              focus states. I wanted the labels to sit inside the input fields
+              when empty, then float above when the user types or focuses.
+              Tailwind makes this possible using a combination of utilities.
+            </p>
+            <p class="post-paragraph">
+              I wrapped each input and label inside a relative container. The
+              label itself is positioned absolutely and animated using
+              <code>transition-all</code>. To detect when the input is empty, I
+              added <code>placeholder=" "</code> on each field. This works
+              together with <code>peer</code> on the input, which lets the label
+              react to the input’s state using selectors like
+              <code>peer-placeholder-shown</code> and <code>peer-focus</code>.
+            </p>
+            <p class="post-paragraph">
+              Here’s the structure I used for the username field:
+            </p>
+            <pre><code>
+&lt;div className="relative mb-4"&gt;
+  &lt;input
+    type="text"
+    placeholder=" "
+    className="peer w-full border rounded-md p-2 pt-4 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+  /&gt;
+  &lt;label className="absolute left-3 -top-2 bg-white px-1 text-gray-500 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-blue-500 peer-focus:text-sm"&gt;
+    Username
+  &lt;/label&gt;
+&lt;/div&gt;
+            </code></pre>
+            <p class="post-paragraph">Here’s what each part does:</p>
+            <ul>
+              <li>
+                <code>placeholder=" "</code> — lets Tailwind detect when the
+                input is empty.
+              </li>
+              <li>
+                <code>peer</code> — allows the label to react to the input’s
+                state.
+              </li>
+              <li>
+                <code>absolute</code> + <code>transition-all</code> — positions
+                the label and animates it smoothly.
+              </li>
+              <li>
+                <code>peer-placeholder-shown:top-4</code> — moves the label
+                inside the input when it’s empty.
+              </li>
+              <li>
+                <code>peer-focus:-top-2</code> +
+                <code>peer-focus:text-blue-500</code> +
+                <code>peer-focus:text-sm</code> — floats the label up with a
+                smaller blue font when the input is focused.
+              </li>
+            </ul>
+            <p class="post-paragraph">
+              Initially, the label would revert to gray after typing, which felt
+              inconsistent. To fix this, I set the label’s default state to look
+              “active” once the field contains text. I also made the typed text
+              darker for better contrast:
+            </p>
+            <pre><code>
+&lt;input
+  type="text"
+  placeholder=" "
+  className="peer w-full border rounded-md p-2 pt-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+/&gt;
+&lt;label className="absolute left-3 -top-2 bg-white px-1 text-blue-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-blue-500 peer-focus:text-sm"&gt;
+  Username
+&lt;/label&gt;
+            </code></pre>
+            <p class="post-paragraph">
+              For the password field, I repeated the same pattern. The result is
+              an interactive form where each label smoothly floats above the
+              input on focus or when text is entered, while the placeholder
+              remains subtle.
+            </p>
+            <p class="post-paragraph">
+              Implementing these floating labels with Tailwind taught me how
+              powerful utility-first styling can be. By combining
+              <code>peer</code>, <code>placeholder-shown</code>, and
+              <code>focus</code> states, I can create complex, interactive forms
+              without writing custom CSS.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
