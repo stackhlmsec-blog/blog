@@ -466,3 +466,21 @@ h2+pre,
 h3+pre {
   margin-top: 1.5rem;
 }
+
+.post-image {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.post-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.post-image figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #64748b;
+}
