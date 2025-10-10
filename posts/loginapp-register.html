@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building the Registration Form | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+    <noscript class="noscript-warning">
+      <p>
+        This site requires JavaScript to display navigation and footer content.
+      </p>
+    </noscript>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">LoginApp: Building the Registration Form</h1>
+            <p class="post-intro">Published: October 10, 2025</p>
+            <p class="post-paragraph">
+              After refining the login form in the previous post, the next step
+              was to add a registration page. I wanted it to feel like a natural
+              extension of the login page, both in layout and interaction, while
+              introducing the additional inputs needed to create an account.
+            </p>
+            <p class="post-paragraph">
+              I began by creating a new <code>/register</code> route and used
+              the same layout as the login form:
+            </p>
+            <pre><code>
+export default function RegisterPage() {
+  return (
+    &lt;main className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-purple-400 font-sans"&gt;
+      &lt;div className="bg-white rounded-xl shadow-lg w-full max-w-md text-center"&gt;
+        &lt;h1 className="text-2xl font-bold text-blue-500 mb-6"&gt;
+          Register
+        &lt;/h1&gt;
+      &lt;/div&gt;
+    &lt;/main&gt;
+  );
+}
+            </code></pre>
+            <p class="post-paragraph">
+              Since I already had <strong>Username</strong> and
+              <strong>Password</strong> fields in the login form, I reused the
+              same floating label pattern for consistent styling. The only new
+              fields on the registration page were <strong>Email</strong> and
+              <strong>Confirm Password</strong>.
+            </p>
+            <p class="post-paragraph">
+              Here’s the structure I used for each input:
+            </p>
+            <pre><code>
+&lt;div className="relative mb-4"&gt;
+  &lt;input
+    type="text"
+    placeholder=" "
+    className="peer w-full border rounded-md p-2 pt-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+  /&gt;
+  &lt;label className="absolute left-3 -top-2 bg-white px-1 text-blue-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-blue-500 peer-focus:text-sm"&gt;
+    Username
+  &lt;/label&gt;
+&lt;/div&gt;
+            </code></pre>
+            <p class="post-paragraph">
+              I used this same structure for all form fields, changing only the
+              type and label for each one:
+            </p>
+            <ul>
+              <li>Username (text)</li>
+              <li>Email (email)</li>
+              <li>Password (password)</li>
+              <li>Confirm Password (password)</li>
+            </ul>
+            <p class="post-paragraph">
+              By setting the correct type attributes (email and password), I
+              enabled built-in HTML validation. This prevents invalid data from
+              being submitted before I add real backend validation. It's not
+              secure by itself, but it's a good first layer of form handling.
+            </p>
+            <p class="post-paragraph">
+              The registration form now also includes:
+            </p>
+            <ul>
+              <li>A Submit button (Register)</li>
+              <li>A link back to the Login page</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
