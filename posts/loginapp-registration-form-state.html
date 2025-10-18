@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adding Form State and Input Handling | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+    <noscript class="noscript-warning">
+      <p>
+        This site requires JavaScript to display navigation and footer content.
+      </p>
+    </noscript>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">
+              LoginApp: Adding Form State and Input Handling
+            </h1>
+            <p class="post-intro">Published: October 17, 2025</p>
+            <p class="post-paragraph">
+              After setting up the registration form structure, I wanted to
+              start refining the frontend and making the form more interactive.
+              In this stage, I focused on layout improvements and added state
+              handling for the password fields.
+            </p>
+            <p class="post-paragraph">
+              First, I reorganized the layout using Flexbox:
+            </p>
+            <ul class="post-paragraph">
+              <li>
+                <code>flex flex-col</code> allows stacking future elements
+                vertically.
+              </li>
+              <li><code>items-center</code> keeps everything centered.</li>
+              <li>
+                <code>gap-4</code> provides clean spacing between elements
+                without manually adding margins.
+              </li>
+            </ul>
+            <p class="post-paragraph">
+              I also made the card more responsive by using <code>sm:p-6</code>,
+              so it wouldn’t feel cramped on smaller screens. This step wasn’t
+              about changing the visual design; it was about preparing the
+              layout to grow smoothly as new elements are added.
+            </p>
+            <p class="post-paragraph">
+              Next, I improved input handling on both the Login and Register
+              pages by adding the built-in <code>required</code> attribute to
+              each input field. This prevents users from submitting empty forms
+              and provides instant browser feedback.
+            </p>
+            <p class="post-paragraph">
+              To prepare for password validation, I began tracking user input
+              using React state. React doesn’t automatically remember what users
+              type, so I used <code>useState</code> to store and update the
+              password and confirm password fields. This makes the inputs
+              controlled components, meaning React keeps their values in sync as
+              the user types:
+            </p>
+            <pre><code>
+const [password, setPassword] = useState("");
+const [confirmPassword, setConfirmPassword] = useState("");
+            </code></pre>
+            <p class="post-paragraph">
+              With this in place, the form now responds to user input in real
+              time. It sets the foundation for upcoming features like password
+              matching, real-time feedback, and conditional submission.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
