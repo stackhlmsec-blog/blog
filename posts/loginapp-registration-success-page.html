@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Success Page | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+    <noscript class="noscript-warning">
+      <p>
+        This site requires JavaScript to display navigation and footer content.
+      </p>
+    </noscript>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">LoginApp: Registration Success Page</h1>
+            <p class="post-intro">Published: October 25, 2025</p>
+            <p class="post-paragraph">
+              When a user completes registration, it’s important to let them
+              know everything worked. A simple confirmation screen helps give a
+              smooth end to the sign-up process and guides them toward their
+              next step: logging in.
+            </p>
+            <p class="post-paragraph">
+              In this update, I created a Registration Successful page and
+              refined it over a few steps to match the rest of the app’s design.
+            </p>
+            <p class="post-paragraph">
+              I started with a basic success screen that included a heading, a
+              short message, and a link to return to the login page. The goal
+              was to keep it minimal but clear, just enough to confirm that the
+              account was created and offer a next step. Here's the initial
+              structure I used:
+            </p>
+            <pre><code>
+import Link from "next/link";
+
+export default function RegistrationSuccess() {
+  return (
+    &lt;main&gt;
+      &lt;div&gt;
+        &lt;h1&gt;Registration Successful&lt;/h1&gt;
+        &lt;p&gt;Your account has been created successfully.&lt;/p&gt;
+        &lt;Link href="/login"&gt;Go to Login&lt;/Link&gt;
+      &lt;/div&gt;
+    &lt;/main&gt;
+  );
+}
+            </code></pre>
+            <p class="post-paragraph">
+              Once the basic layout was in place, I centered the content and
+              added the background. I reused the same layout system I had used
+              for the login and registration pages (<code
+                >min-h-screen, flex, max-w-md</code
+              >) to keep the experience consistent across the app.
+            </p>
+            <p class="post-paragraph">
+              Finally, I styled the heading, message, and login link to match
+              the app’s color palette and spacing. I added a gradient
+              background, rounded card container, and hover transitions to the
+              link.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
