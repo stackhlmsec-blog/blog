@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating a Reusable App Layout | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+    <noscript class="noscript-warning">
+      <p>
+        This site requires JavaScript to display navigation and footer content.
+      </p>
+    </noscript>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">LoginApp: Creating a Reusable App Layout</h1>
+            <p class="post-intro">Published: November 2, 2025</p>
+            <p class="post-paragraph">
+              As my project grows, I don’t want to repeat the same layout
+              structure on every page. A shared layout component helps keep
+              things consistent and makes updates easier down the line.
+            </p>
+            <p class="post-paragraph">
+              I created an <code>AppLayout</code> component that wraps page
+              content and gives all screens the same centered layout and
+              background.
+            </p>
+            <p class="post-paragraph">I started by creating a new file:</p>
+            <pre><code>
+src/components/AppLayout.tsx
+            </code></pre>
+            <p class="post-paragraph">
+              This component will accept children, which is how React passes
+              nested content into reusable components. In React,
+              <code>React.ReactNode</code>
+              describes anything you can put between JSX tags: text, elements,
+              or even other components.
+            </p>
+            <p class="post-paragraph">Here’s the full code:</p>
+            <pre><code>
+import React from "react";
+
+type Props = {
+  children: React.ReactNode;
+};
+
+export default function AppLayout({ children }: Props) {
+  return (
+    &lt;main className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-purple-400 font-sans"&gt;
+      &lt;div className="bg-white p-10 rounded-xl shadow-lg w-full max-w-md text-center"&gt;
+        {children}
+      &lt;/div&gt;
+    &lt;/main&gt;
+  );
+}
+            </code></pre>
+            <p class="post-paragraph">
+              This creates a full-height gradient background and centers any
+              content inside a rounded white box.
+            </p>
+            <p class="post-paragraph">
+              Now every page can share this same structure simply by wrapping
+              its content in <code>&lt;AppLayout&gt;</code>.
+            </p>
+            <p class="post-paragraph">
+              Next, I updated the Dashboard page to use the new layout:
+            </p>
+            <pre><code>
+import Link from "next/link";
+import AppLayout from "../../components/AppLayout";
+
+export default function Dashboard() {
+  return (
+    &lt;AppLayout&gt;
+      &lt;h1 className="text-2xl font-bold text-blue-500 mb-4"&gt;Dashboard&lt;/h1&gt;
+      &lt;p className="mb-6 text-gray-700"&gt;
+        Welcome to your dashboard. You're logged in!
+      &lt;/p&gt;
+      &lt;div className="flex flex-col items-center mt-10 gap-4"&gt;
+        &lt;Link
+          href="/logout"
+          className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition"
+        &gt;
+          Log out
+        &lt;/Link&gt;
+      &lt;/div&gt;
+    &lt;/AppLayout&gt;
+  );
+}
+            </code></pre>
+            <p class="post-paragraph">
+              This keeps the content clean and centered without repeating layout
+              markup on every page.
+            </p>
+            <p class="post-paragraph">
+              A layout component does more than just make the UI consistent, it
+              also makes maintenance easier. If I ever want to change the
+              background, adjust spacing, or add a logo header, I can do it in
+              one place instead of across multiple files.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
