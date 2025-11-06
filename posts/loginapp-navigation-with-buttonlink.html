@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Simplifying Navigation with a Reusable ButtonLink Component | StackhlmSec
+      Blog
+    </title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+    <noscript class="noscript-warning">
+      <p>
+        This site requires JavaScript to display navigation and footer content.
+      </p>
+    </noscript>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">
+              LoginApp: Simplifying Navigation with a Reusable ButtonLink
+              Component
+            </h1>
+            <p class="post-intro">Published: November 6, 2025</p>
+            <p class="post-paragraph">
+              After setting up a shared layout for my pages, the next step was
+              to simplify how I handle buttons that act as links. I noticed I
+              was repeating the same styled <code>&lt;Link&gt;</code> component
+              across several pages.
+            </p>
+            <p class="post-paragraph">
+              To follow the DRY (Don’t Repeat Yourself) principle, I created a
+              reusable <code>ButtonLink</code> component that wraps
+              <code>next/link</code> and keeps the styling consistent
+              everywhere.
+            </p>
+            <p class="post-paragraph">
+              I started by moving the repeated link code into its own component:
+            </p>
+            <pre><code>
+import Link from "next/link";
+
+type Props = {
+  href: string;
+  children: React.ReactNode;
+};
+
+export default function ButtonLink({ href, children }: Props) {
+  return (
+    &lt;Link
+      href={href}
+      className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition"
+    &gt;
+      {children}
+    &lt;/Link&gt;
+  );
+}
+            </code></pre>
+            <p class="post-paragraph">
+              This component now handles the button’s color, shape, and hover
+              behavior. Whenever I need a link that looks like a button, I can
+              just use <code>&lt;ButtonLink&gt;</code> and pass a destination.
+            </p>
+            <pre><code>
+import AppLayout from "@/components/AppLayout";
+import ButtonLink from "@/components/ButtonLink";
+
+export default function Dashboard() {
+  return (
+    &lt;AppLayout&gt;
+      &lt;h1 className="text-2xl font-bold text-blue-500 mb-4"&gt;Dashboard&lt;/h1&gt;
+
+      &lt;p className="mb-6 text-gray-700"&gt;
+        Welcome to your dashboard. You're logged in!
+      &lt;/p&gt;
+      
+      &lt;div className="flex flex-col items-center mt-10 gap-4"&gt;
+        &lt;ButtonLink href="/logout"&gt;Log out&lt;/ButtonLink&gt;
+      &lt;/div&gt;
+    &lt;/AppLayout&gt;
+  );
+}
+            </code></pre>
+            <p class="post-paragraph">
+              This makes the page cleaner, and now any visual change to the
+              button style can be done in one place.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
