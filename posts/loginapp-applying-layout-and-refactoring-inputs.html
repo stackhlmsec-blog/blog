@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Applying Layout and Refactoring Inputs | StackhlmSec Blog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+    <noscript class="noscript-warning">
+      <p>
+        This site requires JavaScript to display navigation and footer content.
+      </p>
+    </noscript>
+
+    <main class="content-page">
+      <section>
+        <div class="content-box">
+          <article class="blog-post">
+            <h1 class="post-title">
+              LoginApp: Applying Layout and Refactoring Inputs
+            </h1>
+            <p class="post-intro">Published: November 17, 2025</p>
+            <p class="post-paragraph">
+              After introducing a shared layout and reusable button component, I
+              continued refining the LoginApp by applying the layout to more
+              pages and simplifying form inputs.
+            </p>
+            <p class="post-paragraph">
+              To maintain consistency across screens, I wrapped both the login
+              and registration pages in the <code>AppLayout</code> component.
+              This ensures every form appears centered on the gradient
+              background, inside the same styled container.
+            </p>
+            <p class="post-paragraph">
+              The form inputs shared a common structure — floating labels,
+              peer-based styling, and focus transitions — so I extracted a
+              reusable <code>InputField</code> component to simplify the markup
+              and reduce repetition.
+            </p>
+            <pre><code>
+type Props = {
+  label: string;
+  type: string;
+  value: string;
+  onChange: (e: React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt; void;
+};
+            </code></pre>
+            <p class="post-paragraph">
+              This component handles layout, styling, and accessibility for each
+              input. It’s now used for both the Username and Email fields in the
+              registration form.
+            </p>
+            <p class="post-paragraph">
+              With <code>InputField</code> in place, I replaced the raw markup
+              for Username and Email with declarative components:
+            </p>
+            <pre><code>
+&lt;InputField
+  label="Username"
+  type="text"
+  value={username}
+  onChange={(e) =&gt; setUsername(e.target.value)}
+/&gt;
+            </code></pre>
+            <p class="post-paragraph">
+              This makes the form easier to read and maintain. By centralizing
+              layout and input logic, I reduce duplication, make future design
+              changes easier and improve readability for myself and others.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../js/inject.js"></script>
+  </body>
+</html>
